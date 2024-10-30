@@ -2,6 +2,10 @@
 
 This repository is a tool for analyzing NBA player data, contracts, and team strategies using a Neo4j database and Streamlit interface. The application allows you to explore player statistics, assess trade value, and query the data using GraphQA, powered by Llama3.
 
+## Demo
+https://github.com/user-attachments/assets/c0f64118-b475-40b2-b3c0-5d2f38ed87d3
+
+
 ---
 
 ## Table of Contents
