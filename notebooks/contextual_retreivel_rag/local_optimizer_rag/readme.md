@@ -3,6 +3,13 @@
 
 This repository showcases advanced examples using large language models (LLMs) and Retrieval-Augmented Generation (RAG) methods with a focus on efficient document retrieval, contextual enhancement, and automated knowledge improvement. The following README will guide you through setting up the Docker environment, configuring the necessary CUDA environment, running the app using Streamlit, and understanding the unique components of each app.
 
+## Demo
+
+
+https://github.com/user-attachments/assets/e6160f7a-9a5e-4748-99d4-5414599835a9
+
+
+
 ## Contents
 
 1. [Environment Setup](#environment-setup)
