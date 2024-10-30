@@ -2,6 +2,12 @@
 
 This repository provides an advanced Retrieval-Augmented Generation (RAG) bot for sports news. It combines various RAG methods with contextual and corrective refinements, enabling users to receive accurate, real-time information on sports events. The bot is implemented in a Dockerized environment to ensure consistency and easy setup across systems.
 
+## Demo
+
+
+https://github.com/user-attachments/assets/e13404a5-0b72-4125-bb2d-02695706afc0
+
+
 ## Table of Contents
 - [Getting Started](#getting-started)
 - [Running the Application](#running-the-application)
