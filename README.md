@@ -76,48 +76,60 @@ Follow these steps to set up the Docker environment, models, and necessary confi
 
 Each application has a unique purpose. Here’s an overview of each, along with the command to launch it.
 
+
 - **Database Optimizer App**: Analyzes and visualizes database schemas, using NetworkX and LLMs to identify redundancies and optimize schema design.
+   Modular Notebook Location: ollama_neo4j_networkx_llama3_app_exs\notebooks\graphrag\networkx\examples\graph_rag_networkx_ollama_databasehelper_modular.ipynb
+   Vector or Graph Storage: Graph
+   Model Type: llama3.2
   ```bash
   streamlit run src/database_optimizer_networkx_rag_llama3/streamlit_app.py
   ```
-  
 
 https://github.com/user-attachments/assets/dfe07211-3b29-4c64-8ec9-20d0f772d717
 
 
-- **Sports News Agentic Websearch Enabled Contextual Retrieval RAG Bot**: Provides real-time sports news using advanced RAG techniques, including web search with Tavily.
-  ```bash
-  streamlit run src/sports_news_rag/app.py
-  ```
-
-
-https://github.com/user-attachments/assets/f1c2414b-3c01-4bd9-92c3-7dca01d9b1bc
-
-
-
-- **NBA Neo4j Data Ingestion/Analysis App**: Ingests and analyzes NBA player data, contracts, and strategies in a Neo4j database, with GraphQA-based querying.
-  ```bash
-  streamlit run src/neo4j_model/streamlit_app.py
-  ```
-https://github.com/user-attachments/assets/4e56b6f7-8ae7-4cbd-9f96-b5e3cd1614ad
-
-
-- **Git or Local Tree RAG Demo**: Ingests local directories or GitHub repositories for RAG-based code structure analysis.
-  ```bash
-  streamlit run src/git_repo_model/app.py
-  ```
-
-
-https://github.com/user-attachments/assets/e20e2d6d-46a2-4a19-b976-aaa42ed5a52c
-
-
 - **PDF Load into Graph RAG Demo**: Uses graph nodes for PDF document content, enabling semantic search and document exploration.
+   Modular Notebook Location: ollama_neo4j_networkx_llama3_app_exs\notebooks\graphrag\networkx\graph_rag_networkx_ollama_modular_app.ipynb
+   Vector or Graph Storage: Graph
+   Model Type: llama3.2
   ```bash
   streamlit run src/graphrag/networkx/examples/app.py
   ```
 
-
 https://github.com/user-attachments/assets/5884a2d7-aac3-4b51-9640-2d9ccc729769
+
+
+- **Sports News Agentic Websearch Enabled Contextual Retrieval RAG Bot**: Provides real-time sports news using advanced RAG techniques, including web search with Tavily.
+   Modular Notebook Location: ollama_neo4j_networkx_llama3_app_exs\notebooks\contextual_retreivel_rag\sports_news_rag\langchain_quickstart_ollama_llama_hyde_corrective.ipynb
+   Vector or Graph Storage: Vector
+   Model Type: llama3.2
+  ```bash
+  streamlit run src/sports_news_rag/app.py
+  ```
+
+https://github.com/user-attachments/assets/f1c2414b-3c01-4bd9-92c3-7dca01d9b1bc
+
+
+- **Git or Local Tree RAG Demo**: Ingests local directories or GitHub repositories for RAG-based code structure analysis.
+   Modular Notebook Location: ollama_neo4j_networkx_llama3_app_exs\notebooks\contextual_retreivel_rag\local_optimizer_rag\langchain_quickstart_ollama_llama_hyde_corrective.ipynb
+   Vector or Graph Storage: Vector
+   Model Type: llama3.2
+  ```bash
+  streamlit run src/git_repo_model/app.py
+  ```
+
+https://github.com/user-attachments/assets/e20e2d6d-46a2-4a19-b976-aaa42ed5a52c
+
+
+- **NBA Neo4j Data Ingestion/Analysis App**: Ingests and analyzes NBA player data, contracts, and strategies in a Neo4j database, with GraphQA-based querying.
+   Modular Notebook Location: ollama_neo4j_networkx_llama3_app_exs\notebooks\neo4j_data_setup\nba_trade_data_llama3cypher_neo4j_modular.ipynb
+   Vector or Graph Storage: Graph
+   Model Type: tomasonjo/llama3-text2cypher-demo
+  ```bash
+  streamlit run src/neo4j_model/streamlit_app.py
+  ```
+  
+https://github.com/user-attachments/assets/4e56b6f7-8ae7-4cbd-9f96-b5e3cd1614ad
 
 
 ---
