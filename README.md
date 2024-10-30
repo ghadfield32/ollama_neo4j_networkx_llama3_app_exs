@@ -1,12 +1,13 @@
 # LLM and RAG Streamlit App Repository
 
-This repository provides several advanced Streamlit applications that leverage Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG) techniques, each tailored to unique tasks such as database optimization and real-time sports news retrieval. The setup is Dockerized for consistent cross-platform deployment, including GPU support.
+This repository provides several advanced Streamlit applications that leverage Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG) techniques, each tailored to unique tasks, such as database optimization and real-time sports news retrieval. The setup is Dockerized for consistent cross-platform deployment, including GPU support.
 
 ## Contents
 
 1. [Setup Steps](#setup-steps)
 2. [App Overview and Launch Commands](#app-overview-and-launch-commands)
-3. [Video Walkthroughs](#video-walkthroughs)
+3. [Ollama and LangChain Integration](#ollama-and-langchain-integration)
+4. [Video Walkthroughs](#video-walkthroughs)
 
 ---
 
@@ -36,7 +37,12 @@ Follow these steps to set up the Docker environment, models, and necessary confi
      ```bash
      ollama pull tomasonjo/llama3-text2cypher-demo
      ```
-   - Alternatively, choose any model compatible with your specific task, such as `text2cypher`.
+     or 
+     ```bash
+     ollama pull llama3.2
+     ```
+   - I chose llama3-text2cypher-demo because it was finetuned in `text2cypher` for neo4j tasks
+   - I chose llama3.2 for everything else because it was the latest and greatest lately
 
 4. **Start Neo4j**:
    - Ensure Neo4j is accessible with the following `.env` configuration at the repository root:
@@ -61,76 +67,72 @@ Follow these steps to set up the Docker environment, models, and necessary confi
 
 ### 2. App Overview and Launch Commands
 
-Here’s an overview of each app, its purpose, features, and how to launch it.
+Each application has a unique purpose. Here’s an overview of each, along with the command to launch it.
 
----
-
-#### Database Optimizer App
-
-- **Purpose**: This app visualizes and analyzes database schemas, helping detect redundancies and suggesting optimizations. It uses NetworkX for graph-based schema analysis combined with LLM-powered insights.
-- **Launch Command**:
+- **Database Optimizer App**: Analyzes and visualizes database schemas, using NetworkX and LLMs to identify redundancies and optimize schema design.
   ```bash
   streamlit run src/database_optimizer_networkx_rag_llama3/streamlit_app.py
   ```
-- **Features**:
-  - Schema visualization with nodes representing tables/columns and edges showing relationships.
-  - LLM analysis to identify duplicate tables, foreign key relationships, and optimization opportunities.
 
----
-
-#### Sports News Agentic Websearch Enabled Contextual Retrieval RAG Bot
-
-- **Purpose**: This bot delivers real-time sports news using advanced RAG techniques, including contextual retrieval and agentic web search with Tavily integration.
-- **Launch Command**:
+- **Sports News Agentic Websearch Enabled Contextual Retrieval RAG Bot**: Provides real-time sports news using advanced RAG techniques, including web search with Tavily.
   ```bash
   streamlit run src/sports_news_rag/app.py
   ```
-- **Features**:
-  - Real-time sports updates powered by Tavily web search and pre-ingested sports news.
-  - Multi-layered RAG strategies like Contextual Retrieval, Self-RAG, and Corrective RAG for accurate responses.
 
----
-
-#### NBA Neo4j Data Ingestion/Analysis App
-
-- **Purpose**: This app ingests and analyzes NBA player data, contracts, and team strategies in a Neo4j database, enabling trade analysis and player/team statistics exploration with Cypher queries.
-- **Launch Command**:
+- **NBA Neo4j Data Ingestion/Analysis App**: Ingests and analyzes NBA player data, contracts, and strategies in a Neo4j database, with GraphQA-based querying.
   ```bash
   streamlit run src/neo4j_model/streamlit_app.py
   ```
-- **Features**:
-  - Neo4j data ingestion, creating a structured database of players, teams, and contracts.
-  - Natural language-based Cypher queries via GraphQA, enabling accessible data querying and insights on trade value, player performance, and team strategies.
 
----
-
-#### Git or Local Tree RAG Demo
-
-- **Purpose**: This demo showcases a Retrieval-Augmented Generation (RAG) setup that reads and analyzes local file structures or Git repositories, recommending improvements based on code structure and metadata.
-- **Launch Command**:
+- **Git or Local Tree RAG Demo**: Ingests local directories or GitHub repositories for RAG-based code structure analysis.
   ```bash
   streamlit run src/git_repo_model/app.py
   ```
-- **Features**:
-  - Ingests documents from a specified local directory or GitHub repo.
-  - Multi-stage RAG pipeline for contextual code analysis, with Corrective and Self-RAG stages to ensure reliable recommendations.
 
----
-
-#### PDF Load into Graph RAG Demo
-
-- **Purpose**: Demonstrates RAG using PDF documents, processing files into graph nodes and applying context-based retrieval for document exploration.
-- **Launch Command**:
+- **PDF Load into Graph RAG Demo**: Uses graph nodes for PDF document content, enabling semantic search and document exploration.
   ```bash
-  streamlit run src/pdf_to_graph_rag/app.py
+  streamlit run src/graphrag/networkx/examples/app.py
   ```
-- **Features**:
-  - Transforms PDF contents into graph structures, enabling semantic search and document relationship analysis.
-  - Contextual and Corrective RAG strategies for refined information retrieval across document nodes.
 
 ---
 
-### 3. Video Walkthroughs
+### 3. Ollama and LangChain Integration
+
+This repository leverages **Ollama** and **LangChain** for handling large language model (LLM) workflows with advanced Retrieval-Augmented Generation (RAG). Below are options for maintaining and serving these models locally, through Docker, or via cloud deployments.
+
+#### Local Maintenance and Serving with Docker
+
+This Docker setup offers a convenient way to maintain Ollama models (like `Llama 3.2`) locally while making them accessible globally if hosted on a server. By leveraging the Docker image’s built-in configurations, Ollama and LangChain can handle complex retrieval pipelines efficiently within a controlled environment. Docker's built-in GPU compatibility (with CUDA/NVIDIA Docker) ensures that you can serve models with enhanced performance for heavy computational tasks.
+
+1. **Serve the Model Locally**:
+   - With the Docker container running, models can be accessed and tested locally through Streamlit apps or scripts within the dev environment.
+2. **Serve on a Server (Global Access)**:
+   - By deploying the Docker container on a cloud or local server, you can make the model accessible globally. Configuring your Docker network settings or utilizing a cloud provider’s network options (e.g., AWS or GCP load balancers) allows secure remote access to model inference.
+
+#### Cloud-Based Options: Hugging Face Spaces
+
+For a cloud-deployed model accessible from anywhere without server maintenance, you may consider **Hugging Face Spaces**. Hugging Face offers Spaces for hosting models and applications, making it a user-friendly option for deploying LLMs, albeit at a cost for higher usage and storage. This deployment model suits applications where maintenance-free, scalable hosting is essential.
+
+1. **Upload and Deploy**:
+   - Prepare the Streamlit app and model artifacts, then upload them to a Hugging Face Space for deployment.
+2. **Advantages and Considerations**:
+   - Pros: Minimal setup, global accessibility, and easy scaling.
+   - Cons: Usage fees and limited control over back-end infrastructure.
+
+#### Example Serving Option: Litserve in Notebooks
+
+Within `notebooks/litserve`, a **Litserve** example is set up for deploying models like `Llama 3.2`. This option provides a direct, simple way to serve the model with a lightweight API. Litserve runs on CPU, enabling you to offer model inferences with minimal configuration and on-demand scalability.
+
+1. **Litserve Setup**:
+   - Run the Litserve script from `notebooks/litserve`, which serves the model and makes it accessible as an API endpoint for querying and retrieval.
+2. **Usage Scenario**:
+   - Litserve is ideal for smaller projects requiring on-demand LLM inference without the complexity of a full Docker or cloud setup. This option can also be useful for local testing or serving specific LLMs without additional infrastructure.
+
+**Note**: Each serving method is designed to provide flexibility based on your requirements for accessibility, scalability, and maintenance. This repository’s Docker setup enables seamless local and global deployments, while Hugging Face and Litserve provide alternative methods with varying degrees of complexity and control.
+
+---
+
+### 4. Video Walkthroughs
 
 For a step-by-step visual guide, refer to these walkthroughs:
 
@@ -141,51 +143,3 @@ For a step-by-step visual guide, refer to these walkthroughs:
 - **[Git or Local Tree Rag Demo](custom_ollama_docker/videos/git_or_local_repository_local_rag_llama3_2.mp4)**
 
 ---
-
-
-
-# GPU enabled Ollama-Neo4j GPU enabled Docker Image Template 
-https://github.com/ghadfield32/ollama-neo4j-docker
-
-## Basic Structure for Docker Environment
-project_root/
-│
-├── .devcontainer/
-│   ├── Dockerfile
-│   ├── devcontainer.json
-│   ├── devcontainer.env
-│   ├── environment.yml
-│   ├── requirements.txt
-│   ├── .dockerignore
-│   ├── install_dependencies.sh
-│   ├── install_quarto.sh
-│   └── install_requirements.sh
-├── scripts/
-│   └── start_services.sh
-
-│
-├── data/
-│   ├── raw/
-│   └── processed/
-│
-├── notebooks/
-│   └── ...
-│
-├── src/
-│   └── features
-│   └── models
-│   └── visualization
-│
-├── app/
-│   └── ...
-│
-├── tests/
-│   └── test1.py
-│
-├── README.md
-├── .gitattributes
-├── .gitignore
-├── .env
-│
-└── docker-compose.yml
-
