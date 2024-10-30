@@ -1,0 +1,39 @@
+services:
+  datascience:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - ./src:/workspace/src
+      - ./data:/workspace/data
+    ports:
+      - "8501:8501"    # Streamlit
+      - "11434:11434"  # Ollama API
+      - "8080:8080"    # LitServe port - Add this line to expose LitServe
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    environment:
+      ENV_NAME: data_science_ollama
+      PYTHON_VER: 3.10
+      OLLAMA_MODELS: /workspace/data/ollama_models
+    runtime: nvidia  # Use NVIDIA Container Toolkit for GPU support
+
+  neo4j:
+    image: neo4j:latest
+    container_name: neo4j_server
+    volumes:
+      - ./neo4j/logs:/logs
+      - ./neo4j/config:/config
+      - ./neo4j/data:/data
+      - ./neo4j/plugins:/plugins
+    environment:
+      - NEO4J_AUTH=neo4j/your_password
+    ports:
+      - "7474:7474"  # HTTP Neo4j Browser
+      - "7687:7687"  # Bolt protocol for database connections
+    restart: always

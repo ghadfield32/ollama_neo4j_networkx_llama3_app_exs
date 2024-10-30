@@ -1,0 +1,29 @@
+# Ignore all environment and temporary files
+.env
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Ignore Python cache and compiled files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Ignore mypy cache
+.mypy_cache/
+*.meta.json
+
+# Ignore Jupyter Notebook checkpoints and temporary files
+.ipynb_checkpoints/
+
+# Ignore Neo4j log and transaction files
+neo4j/data/transactions/
+neo4j/logs/
+neo4j/data/databases/
+neo4j/data/dbms/
+
+# Ignore VSCode-specific configurations
+.vscode/

@@ -1,0 +1,5 @@
+{
+    "greeting": "Hello, JSON!",
+    "year": 2024,
+    "data": [1, 2, 3, 4, 5]
+}

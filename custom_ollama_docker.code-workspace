@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "ollama_neo4j_networkx_llama3_app_exs",
+			"path": "../ollama_neo4j_networkx_llama3_app_exs"
+		}
+	],
+	"settings": {}
+}
