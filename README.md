@@ -1,5 +1,12 @@
 # LLM and RAG Streamlit App Repository
 
+
+![License](https://img.shields.io/badge/License-MIT-green)
+![Docker](https://img.shields.io/badge/Docker-v20.10.7-blue)
+![LangChain](https://img.shields.io/badge/LangChain-v0.0.100-blue)
+![Ollama](https://img.shields.io/badge/Ollama-vX.X.X-blue)
+
+
 This repository provides several advanced Streamlit applications that leverage Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG) techniques, each tailored to unique tasks, such as database optimization and real-time sports news retrieval. The setup is Dockerized for consistent cross-platform deployment, including GPU support.
 
 ## Contents
@@ -165,3 +172,10 @@ For a step-by-step visual guide, refer to these walkthroughs:
 - **[Git or Local Tree Rag Demo](custom_ollama_docker/videos/git_or_local_repository_local_rag_llama3_2.mp4)**
 
 ---
+
+
+
+License
+
+This project is licensed under the MIT License. For details, please see the LICENSE file.
+
