@@ -31,54 +31,54 @@ https://github.com/user-attachments/assets/c0f64118-b475-40b2-b3c0-5d2f38ed87d3
 ---
 
 ## Setup
+### 1. Setup Steps
 
-### Prerequisites
+Follow these steps to set up the Docker environment, models, and necessary configurations.
 
-1. **Neo4j**: Install and start a Neo4j instance. This can be done locally or through Docker.
-2. **Python**: Requires Python 3.7 or higher.
-3. **Environment Variables**: Create a `.env` file with the following variables:
-   ```env
-   NEO4J_URI=
-   NEO4J_USERNAME=neo4j
-   NEO4J_PASSWORD=
+#### Step-by-Step Instructions
 
-   ```
-
-### Installation
-
-1. Clone the repository and install dependencies.
+1. **Clone the Repository and Install Dependencies**:
    ```bash
    git clone https://github.com/ghadfield32/custom_ollama_docker
    cd custom_ollama_docker
-
    ```
 
-2. Docker build and open in Dev container
-   
+2. **Docker Build and Open in Dev Container**:
    ```bash
    docker-compose build --no-cache
    docker-compose up -d
    ```
 
-   Ctrl+P > Rebuild and reopen in devcontainer
+   In Visual Studio Code (VSCode):
+   - Press `Ctrl+P`, type `Rebuild and Reopen in Container`, and select the command to enter the development environment.
 
-3. Ollama pull model
+3. **Ollama Model Pull**:
+   - Pull the required model in the terminal:
+     ```bash
+     ollama pull tomasonjo/llama3-text2cypher-demo
+     ```
+     or 
+     ```bash
+     ollama pull llama3.2
+     ```
+   - I chose llama3-text2cypher-demo because it was finetuned in `text2cypher` for neo4j tasks
+   - I chose llama3.2 for everything else because it was the latest and greatest lately
 
-    terminal: ollama pull tomasonjo/llama3-text2cypher-demo 
-    **use whatever model you want, this one is finetuned wtih text2cypher on huggingface
+4. **Start Neo4j**:
+   - Ensure Neo4j is accessible with the following `.env` configuration at the repository root:
 
-4. **Start Neo4j** and ensure it is accessible via the credentials in `.env`.
-    - Add a .env file with these parameters at the root of the folder (custom_ollama_docker)
-    # .env
-    TAVILY_API_KEY=
-    LANGSMITH_API_KEY=
-    SQLITE_DB_PATH_1=../data/databases/db1.sqlite
-    SQLITE_DB_PATH_2=../data/databases/db2.sqlite
-    NEO4J_URI=
-    NEO4J_USERNAME=neo4j
-    NEO4J_PASSWORD=
+     ```plaintext
+     # .env
+     TAVILY_API_KEY=
+     LANGSMITH_API_KEY=
+     SQLITE_DB_PATH_1=../data/databases/db1.sqlite
+     SQLITE_DB_PATH_2=../data/databases/db2.sqlite
+     NEO4J_URI=neo4j://localhost:7687
+     NEO4J_USERNAME=neo4j
+     NEO4J_PASSWORD=your_password
+     ```
 
-    - goto https://neo4j.com/ and set up your neo4j aurodb connection and fill in the uri username and password
+   - For cloud-based Neo4j, sign up at [neo4j.com](https://neo4j.com) and update the credentials in the `.env` file.
 
 5. **Streamlit app** open app to see capabilities: load/clean data, ingest into neo4j, typical queries, and llamacypher model results
     ```bash

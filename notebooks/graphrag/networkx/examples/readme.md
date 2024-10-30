@@ -1,6 +1,6 @@
-# PDF Analyzer and Graph Visualizer - Llama3.2 using Graph (Networkx) Storage
+# Database Optimizer and Visualizer - Llama3.2 using Graph (Networkx) Storage
 
-This repository provides a flexible framework to input PDF into a graph storage that the local LLM is able to utilize to find semantic similiarities and answer questions based on that information and it's own finetuned data.
+This repository provides a flexible framework to visualize database schemas, analyze structure, and identify redundancy or optimization opportunities using a Large Language Model (LLM)-based schema analysis tool. The application supports SQLAlchemy-compatible databases and metadata upload in JSON and CSV formats. Example databases load automatically, enabling rapid schema inspection, with support for loading external database metadata such as Oracle or Snowflake.
 
 ## Demo
 
@@ -30,6 +30,10 @@ Follow these steps to set up the Docker environment, models, and necessary confi
 
 3. **Ollama Model Pull**:
    - Pull the required model in the terminal:
+     ```bash
+     ollama pull tomasonjo/llama3-text2cypher-demo
+     ```
+     or 
      ```bash
      ollama pull llama3.2
      ```
@@ -63,7 +67,7 @@ Follow these steps to set up the Docker environment, models, and necessary confi
 
 Run the Streamlit app from the root of the repository:
 ```bash
-streamlit run src/graphrag/networkx/examples/app.py
+streamlit run src/database_optimizer_networkx_rag_llama3/streamlit_app.py
 ```
 
 Once started, navigate to `http://localhost:8501` to view the app.

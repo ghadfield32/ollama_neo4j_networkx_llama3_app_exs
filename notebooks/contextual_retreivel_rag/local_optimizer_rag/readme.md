@@ -29,23 +29,54 @@ This repository includes a Docker environment for seamless deployment across sys
 - **Docker**: Docker version 20.x or newer is recommended.
 - **NVIDIA Docker**: To use GPU acceleration, install NVIDIA Docker and configure it according to your system’s requirements.
 
-#### Docker Environment Configuration
+### 1. Setup Steps
 
-To build the Docker environment, follow these commands:
+Follow these steps to set up the Docker environment, models, and necessary configurations.
 
-```bash
-# Clone the repository
-git clone https://github.com/your-repo-name/llm-example-repo.git
-cd llm-example-repo
+#### Step-by-Step Instructions
 
-# Build the Docker image
-docker build -t llm-docker-env .
+1. **Clone the Repository and Install Dependencies**:
+   ```bash
+   git clone https://github.com/ghadfield32/custom_ollama_docker
+   cd custom_ollama_docker
+   ```
 
-# Run the Docker container with GPU support
-docker run --gpus all -p 8501:8501 -v $(pwd):/app llm-docker-env
-```
+2. **Docker Build and Open in Dev Container**:
+   ```bash
+   docker-compose build --no-cache
+   docker-compose up -d
+   ```
 
-The `Dockerfile` in this repository installs all necessary dependencies, including CUDA support for GPU acceleration, making it easy to deploy LLM-based apps within the Dockerized environment.
+   In Visual Studio Code (VSCode):
+   - Press `Ctrl+P`, type `Rebuild and Reopen in Container`, and select the command to enter the development environment.
+
+3. **Ollama Model Pull**:
+   - Pull the required model in the terminal:
+     ```bash
+     ollama pull tomasonjo/llama3-text2cypher-demo
+     ```
+     or 
+     ```bash
+     ollama pull llama3.2
+     ```
+   - I chose llama3-text2cypher-demo because it was finetuned in `text2cypher` for neo4j tasks
+   - I chose llama3.2 for everything else because it was the latest and greatest lately
+
+4. **Start Neo4j**:
+   - Ensure Neo4j is accessible with the following `.env` configuration at the repository root:
+
+     ```plaintext
+     # .env
+     TAVILY_API_KEY=
+     LANGSMITH_API_KEY=
+     SQLITE_DB_PATH_1=../data/databases/db1.sqlite
+     SQLITE_DB_PATH_2=../data/databases/db2.sqlite
+     NEO4J_URI=neo4j://localhost:7687
+     NEO4J_USERNAME=neo4j
+     NEO4J_PASSWORD=your_password
+     ```
+
+   - For cloud-based Neo4j, sign up at [neo4j.com](https://neo4j.com) and update the credentials in the `.env` file.
 
 ### 2. Running the Streamlit App
 
@@ -64,7 +95,7 @@ Each app in this repository demonstrates a specific use case for LLMs with RAG, 
 
 ---
 
-#### App 1: Local Optimizer RAG
+#### App: Local Optimizer RAG
 
 - **Code Link**: [`notebooks/contextual_retreivel_rag/local_optimizer_rag/langchain_quickstart_ollama_llama_hyde_corrective.ipynb`](notebooks/contextual_retreivel_rag/local_optimizer_rag/langchain_quickstart_ollama_llama_hyde_corrective.ipynb)
 - **App Link**: [`src/git_repo_model/app.py`](src/git_repo_model/app.py)
@@ -114,13 +145,4 @@ This app utilizes a multi-stage RAG pipeline, which enhances response quality by
 Each of these stages plays a role in the app's performance, making it a powerful tool for handling various question types and generating high-quality answers.
 
 ---
-
-### 4. Video Walkthroughs
-
-For a guided visual walkthrough of each app, refer to the following video links:
-
-- **App 1 - Local Optimizer RAG with LLaMA 3.2**  
-  [Watch Video](custom_ollama_docker/videos/git_or_local_repository_local_rag_llama3_2.mp4)
-
-This video will walk you through setting up and using the local optimizer RAG, including detailed demonstrations of vector storage, contextual retrieval, and corrective RAG techniques using the `llama3.2` model. It also covers specific configurations and shows the app in action, providing insights into each retrieval stage.
 
