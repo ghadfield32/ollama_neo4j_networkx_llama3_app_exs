@@ -2,6 +2,12 @@
 
 This repository provides a flexible framework to visualize database schemas, analyze structure, and identify redundancy or optimization opportunities using a Large Language Model (LLM)-based schema analysis tool. The application supports SQLAlchemy-compatible databases and metadata upload in JSON and CSV formats. Example databases load automatically, enabling rapid schema inspection, with support for loading external database metadata such as Oracle or Snowflake.
 
+## Demo
+
+
+https://github.com/user-attachments/assets/1237e57a-dff1-4db1-a353-b658712d0c34
+
+
 ## Project Structure
 
 ```
