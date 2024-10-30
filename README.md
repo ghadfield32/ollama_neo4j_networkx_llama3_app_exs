@@ -77,7 +77,7 @@ Follow these steps to set up the Docker environment, models, and necessary confi
 Each application has a unique purpose. Here’s an overview of each, along with the command to launch it.
 
 
-- **Database Optimizer App**: Analyzes and visualizes database schemas, using NetworkX and LLMs to identify redundancies and optimize schema design.
+- **Database Subject Matter Expert/Optimizer/Visualizer - Llama3.2 using Graph (Networkx) Storage**: Analyzes and visualizes database schemas, using NetworkX and LLMs to identify redundancies and optimize schema design.
    Modular Notebook Location: ollama_neo4j_networkx_llama3_app_exs\notebooks\graphrag\networkx\examples\graph_rag_networkx_ollama_databasehelper_modular.ipynb
    Vector or Graph Storage: Graph
    Model Type: llama3.2

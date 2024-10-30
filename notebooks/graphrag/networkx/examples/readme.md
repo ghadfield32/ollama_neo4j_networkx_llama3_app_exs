@@ -1,4 +1,4 @@
-# Database Optimizer and Visualizer - Llama3.2 using Graph (Networkx) Storage
+# Database Subject Matter Expert/Optimizer/Visualizer - Llama3.2 using Graph (Networkx) Storage
 
 This repository provides a flexible framework to visualize database schemas, analyze structure, and identify redundancy or optimization opportunities using a Large Language Model (LLM)-based schema analysis tool. The application supports SQLAlchemy-compatible databases and metadata upload in JSON and CSV formats. Example databases load automatically, enabling rapid schema inspection, with support for loading external database metadata such as Oracle or Snowflake.
 
