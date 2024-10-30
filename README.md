@@ -73,26 +73,48 @@ Each application has a unique purpose. Here’s an overview of each, along with 
   ```bash
   streamlit run src/database_optimizer_networkx_rag_llama3/streamlit_app.py
   ```
+  
+
+https://github.com/user-attachments/assets/dfe07211-3b29-4c64-8ec9-20d0f772d717
+
 
 - **Sports News Agentic Websearch Enabled Contextual Retrieval RAG Bot**: Provides real-time sports news using advanced RAG techniques, including web search with Tavily.
   ```bash
   streamlit run src/sports_news_rag/app.py
   ```
 
+
+https://github.com/user-attachments/assets/f1c2414b-3c01-4bd9-92c3-7dca01d9b1bc
+
+
+
 - **NBA Neo4j Data Ingestion/Analysis App**: Ingests and analyzes NBA player data, contracts, and strategies in a Neo4j database, with GraphQA-based querying.
   ```bash
   streamlit run src/neo4j_model/streamlit_app.py
   ```
+![database_schema](https://github.com/user-attachments/assets/0b04a827-72e4-4732-be65-0bd8548969f3)
+
+
+https://github.com/user-attachments/assets/4e56b6f7-8ae7-4cbd-9f96-b5e3cd1614ad
+
 
 - **Git or Local Tree RAG Demo**: Ingests local directories or GitHub repositories for RAG-based code structure analysis.
   ```bash
   streamlit run src/git_repo_model/app.py
   ```
 
+
+https://github.com/user-attachments/assets/e20e2d6d-46a2-4a19-b976-aaa42ed5a52c
+
+
 - **PDF Load into Graph RAG Demo**: Uses graph nodes for PDF document content, enabling semantic search and document exploration.
   ```bash
   streamlit run src/graphrag/networkx/examples/app.py
   ```
+
+
+https://github.com/user-attachments/assets/5884a2d7-aac3-4b51-9640-2d9ccc729769
+
 
 ---
 
@@ -132,7 +154,7 @@ Within `notebooks/litserve`, a **Litserve** example is set up for deploying mode
 
 ---
 
-### 4. Video Walkthroughs
+### 4. Mp4 Demos of Apps
 
 For a step-by-step visual guide, refer to these walkthroughs:
 
