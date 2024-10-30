@@ -99,9 +99,6 @@ https://github.com/user-attachments/assets/f1c2414b-3c01-4bd9-92c3-7dca01d9b1bc
   ```bash
   streamlit run src/neo4j_model/streamlit_app.py
   ```
-![database_schema](https://github.com/user-attachments/assets/0b04a827-72e4-4732-be65-0bd8548969f3)
-
-
 https://github.com/user-attachments/assets/4e56b6f7-8ae7-4cbd-9f96-b5e3cd1614ad
 
 
