@@ -39,8 +39,8 @@ Follow these steps to set up the Docker environment, models, and necessary confi
 
 1. **Clone the Repository and Install Dependencies**:
    ```bash
-   git clone https://github.com/ghadfield32/custom_ollama_docker
-   cd custom_ollama_docker
+   git clone https://github.com/ghadfield32/ollama_neo4j_networkx_llama3_app_exs
+   cd ollama_neo4j_networkx_llama3_app_exs
    ```
 
 2. **Docker Build and Open in Dev Container**:

@@ -15,8 +15,8 @@ Follow these steps to set up the Docker environment, models, and necessary confi
 
 1. **Clone the Repository and Install Dependencies**:
    ```bash
-   git clone https://github.com/ghadfield32/custom_ollama_docker
-   cd custom_ollama_docker
+   git clone https://github.com/ghadfield32/ollama_neo4j_networkx_llama3_app_exs
+   cd ollama_neo4j_networkx_llama3_app_exs
    ```
 
 2. **Docker Build and Open in Dev Container**:
@@ -94,7 +94,7 @@ Once started, navigate to `http://localhost:8501` to view the app.
 
 ### 1. `database_setup.py`
 
-Defines and sets up example databases in SQLite format with default tables and relationships. This module also ensures the existence of the path `/workspaces/custom_ollama_docker/data/graph_chroma_dbs/networkx` for storing these databases.
+Defines and sets up example databases in SQLite format with default tables and relationships. This module also ensures the existence of the path `/workspaces/ollama_neo4j_networkx_llama3_app_exs/data/graph_chroma_dbs/networkx` for storing these databases.
 
 ### 2. `graph_construction.py`
 

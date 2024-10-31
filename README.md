@@ -26,8 +26,8 @@ Follow these steps to set up the Docker environment, models, and necessary confi
 
 1. **Clone the Repository and Install Dependencies**:
    ```bash
-   git clone https://github.com/ghadfield32/custom_ollama_docker
-   cd custom_ollama_docker
+   git clone https://github.com/ghadfield32/ollama_neo4j_networkx_llama3_app_exs
+   cd ollama_neo4j_networkx_llama3_app_exs
    ```
 
 2. **Docker Build and Open in Dev Container**:
@@ -174,11 +174,11 @@ Within `notebooks/litserve`, a **Litserve** example is set up for deploying mode
 
 For a step-by-step visual guide, refer to these walkthroughs:
 
-- **[PDF Load into Graph Rag Demo](custom_ollama_docker/videos/pdf_networkx_rag_llama3.2.mp4)**
-- **[Database Optimizer Graph Rag Demo](custom_ollama_docker/videos/database_optimizer_networkx_graph_llama3.mp4)**
-- **[Sports News Agentic Websearch Enabled Contextual Retrieval RAG Demo](custom_ollama_docker/videos/Advanced_Sports_News_Websearch_RAG_Bot.mp4)**
-- **[NBA Neo4j Data Ingestion/Analysis Cypher Finetuned Llama3 Model Demo](custom_ollama_docker/videos/Neo4j_llama3cypher_example.mp4)**
-- **[Git or Local Tree Rag Demo](custom_ollama_docker/videos/git_or_local_repository_local_rag_llama3_2.mp4)**
+- **[PDF Load into Graph Rag Demo](ollama_neo4j_networkx_llama3_app_exs/videos/pdf_networkx_rag_llama3.2.mp4)**
+- **[Database Optimizer Graph Rag Demo](ollama_neo4j_networkx_llama3_app_exs/videos/database_optimizer_networkx_graph_llama3.mp4)**
+- **[Sports News Agentic Websearch Enabled Contextual Retrieval RAG Demo](ollama_neo4j_networkx_llama3_app_exs/videos/Advanced_Sports_News_Websearch_RAG_Bot.mp4)**
+- **[NBA Neo4j Data Ingestion/Analysis Cypher Finetuned Llama3 Model Demo](ollama_neo4j_networkx_llama3_app_exs/videos/Neo4j_llama3cypher_example.mp4)**
+- **[Git or Local Tree Rag Demo](ollama_neo4j_networkx_llama3_app_exs/videos/git_or_local_repository_local_rag_llama3_2.mp4)**
 
 ---
 

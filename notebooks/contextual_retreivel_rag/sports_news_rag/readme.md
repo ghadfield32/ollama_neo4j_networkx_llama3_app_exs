@@ -21,13 +21,13 @@ https://github.com/user-attachments/assets/e13404a5-0b72-4125-bb2d-02695706afc0
 1. **Clone the Repository**:
     Clone this repository to your local environment:
     ```bash
-    git clone https://github.com/ghadfield32/custom_ollama_docker
+    git clone https://github.com/ghadfield32/ollama_neo4j_networkx_llama3_app_exs
     
     ```
 
 2. **Navigate to the Repository Root**:
     ```bash
-    cd custom_ollama_docker
+    cd ollama_neo4j_networkx_llama3_app_exs
     ```
 
 3. **Build the Docker Environment**:
