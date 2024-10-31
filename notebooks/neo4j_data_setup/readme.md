@@ -1,4 +1,4 @@
-# NBA Player Data Analysis with Neo4j and Streamlit
+# NBA Player Data Analysis with Neo4j, Streamlit, langchain/ollama/llama3.2
 
 This repository is a tool for analyzing NBA player data, contracts, and team strategies using a Neo4j database and Streamlit interface. The application allows you to explore player statistics, assess trade value, and query the data using GraphQA, powered by Llama3.
 
