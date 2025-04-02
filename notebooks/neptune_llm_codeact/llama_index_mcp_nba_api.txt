@@ -1,0 +1,90 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "run this to see the webui:\n",
+    "docker build -t chatbot-ollama .\n",
+    "docker run -p 3000:3000 chatbot-ollama\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from llama_index.core import AgentWorkflow\n",
+    "from llama_index.llms.ollama import Ollama\n",
+    "from llama_index.tools.mcp import McpToolSpec\n",
+    "import aiohttp\n",
+    "\n",
+    "class NBAMcpClientSession:\n",
+    "    def __init__(self, endpoint=\"http://localhost:5000\"):\n",
+    "        self.endpoint = endpoint\n",
+    "        self.session = aiohttp.ClientSession()\n",
+    "\n",
+    "    async def request(self, method, url):\n",
+    "        async with self.session.request(method, url) as response:\n",
+    "            return await response.json()\n",
+    "\n",
+    "    async def fetch_tool(self, tool_name):\n",
+    "        # This should be implemented based on your specific MCP service's API\n",
+    "        # For example, if it returns a JSON response like this:\n",
+    "        # {'tool': 'nbahistory', 'description': 'Fetches historical NBA game data'}\n",
+    "        url = f\"{self.endpoint}/{tool_name}\"\n",
+    "        return await self.request(\"GET\", url)\n",
+    "\n",
+    "    async def fetch_tools(self):\n",
+    "        tools = []\n",
+    "        async for tool in self.fetch_tool(tool_name) for tool_name in [\"nbahistory\", \"nbalivestats\"]:\n",
+    "            tools.append(await tool)\n",
+    "        return tools\n",
+    "    \n",
+    "    \n",
+    "# Initialize Ollama LLM\n",
+    "llm = Ollama(\n",
+    "    model=\"llama3.1:8b\",\n",
+    "    base_url=\"http://localhost:11435\",\n",
+    "    request_timeout=300.0\n",
+    ")\n",
+    "\n",
+    "# Connect to NBA MCP Server\n",
+    "nba_tools = McpToolSpec(\n",
+    "    client_session=NBAMcpClientSession(),\n",
+    "    endpoint=\"http://localhost:5000\"\n",
+    ").fetch_tools()\n",
+    "\n",
+    "# Create Agent with NBA capabilities\n",
+    "agent = AgentWorkflow.from_tools_or_functions(\n",
+    "    tools=nba_tools,\n",
+    "    llm=llm,\n",
+    "    system_prompt=\"\"\"You are a NBA data specialist with access to live game \n",
+    "    statistics and historical records. Use available tools to answer queries.\"\"\"\n",
+    ")\n",
+    "\n",
+    "async def get_live_updates():\n",
+    "    response = await agent.run(\n",
+    "        \"What's the current status of Warriors vs Lakers game? \" \n",
+    "        \"Compare Stephen Curry's performance to LeBron James.\"\n",
+    "    )\n",
+    "    print(response)\n"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "data_science_ollama",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "name": "python",
+   "version": "3.10.16"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

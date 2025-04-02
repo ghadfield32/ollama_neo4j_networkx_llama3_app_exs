@@ -65,3 +65,7 @@ dependencies:
       - litserve
       - PyPDF2
       - flask
+      - boto3
+      - langgraph-codeact
+      - langchain-google-genai
+      - fastmcp
