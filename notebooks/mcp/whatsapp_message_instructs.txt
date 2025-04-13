@@ -1,0 +1,6 @@
+(data_science_ft_bio_predictions) PS C:\Users\ghadf\vscode_projects\docker_projects\ollama_neo4j_networkx_llama3_app_exs> cd whatsapp-mcp   
+(data_science_ft_bio_predictions) PS C:\Users\ghadf\vscode_projects\docker_projects\ollama_neo4j_networkx_llama3_app_exs\whatsapp-mcp> cd whatsapp-bridge
+(data_science_ft_bio_predictions) PS C:\Users\ghadf\vscode_projects\docker_projects\ollama_neo4j_networkx_llama3_app_exs\whatsapp-mcp\whatsapp-bridge> go run main.go
+
+
+https://github.com/lharries/whatsapp-mcp
